@@ -1,6 +1,6 @@
 {
   "name": "srecord-checksum-validator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Validate and recalculate Motorola S-record (S19/S28/S37) checksum bytes and parse address, type, and data fields.",
   "type": "module",
   "main": "src/index.js",
