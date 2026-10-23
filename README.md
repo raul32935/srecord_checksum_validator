@@ -37,3 +37,10 @@ Firmware toolchains occasionally emit records with a bad checksum, and tooling t
 ## Design decision
 
 The S-record format does not mandate whether `S0` carries a 2-byte address or none at all; in practice almost every toolchain uses 2 bytes with the value `0000`. This library treats `S0` as a 2-byte-address type. If your files use a different `S0` layout, they will not parse here.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
